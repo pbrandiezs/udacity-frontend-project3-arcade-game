@@ -3,7 +3,7 @@ class Enemy {
     constructor() {
         this.sprite = 'images/enemy-bug.png';
         this.x = 0;
-        this.y = Math.floor(Math.random() * 6);
+        this.y = Math.floor(Math.random() * 5);
     }
     update = function(dt) {
         // todo
