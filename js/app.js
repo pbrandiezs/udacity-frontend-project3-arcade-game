@@ -63,10 +63,16 @@ class Player {
         ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
     }
     handleInput = function(key) {
-        console.log(key);
         if (key === "up") {
             if (this.y > 0) {
                 this.y--;
+            } else {
+                //winner - return to start position
+                console.log("Winner!")
+                console.log("Level " + this.level);
+                alert("Winner!");
+                this.x = 2;
+                this.y = 5;
             }
         }
         if (key === "down") {
@@ -101,10 +107,13 @@ Player.prototype.handleInput = function(key) {
 */
 
 // Now instantiate your objects.
-let bug = new Enemy();
-
-// Place all enemy objects in an array called allEnemies
-allEnemies = [bug];
+var level = Math.floor(Math.random() * 10);
+var allEnemies = [];
+for(i=0; i <= level; i++ ) {
+    let bug = new Enemy();
+    // Place all enemy objects in an array called allEnemies
+    allEnemies.push(bug);
+}
 
 // Place the player object in a variable called player
 let player = new Player();
