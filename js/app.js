@@ -1,4 +1,20 @@
 // Enemies our player must avoid
+class Enemy {
+    constructor() {
+        this.sprite = 'images/enemy-bug.png';
+    }
+    update = function(dt) {
+        // todo
+        // console.log("In enemy update function!");
+    }
+    render = function() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+
+
+
+/*
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -20,15 +36,51 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+*/
+
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 
+class Player {
+    constructor(dt) {
+        this.sprite = 'images/char-boy.png';
+    }
+    update = function(dt) {
+        // todo
+        // console.log("In player update function!");
+    }
+    render = function() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+    handleInput = function(key) {
+        console.log(key);
+    }
+};
+
+/*
+Player.prototype.update = function(dt) {
+};
+
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+Player.prototype.handleInput = function(key) {
+    console.log(key);
+};
+*/
 
 // Now instantiate your objects.
+
+let bug = new Enemy();
+
 // Place all enemy objects in an array called allEnemies
+allEnemies = [bug];
+
 // Place the player object in a variable called player
+let player = new Player();
+
 
 
 
