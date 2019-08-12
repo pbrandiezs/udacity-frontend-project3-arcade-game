@@ -46,16 +46,31 @@ Enemy.prototype.render = function() {
 class Player {
     constructor(dt) {
         this.sprite = 'images/char-boy.png';
+        this.x = 2;
+        this.y = 5;
     }
     update = function(dt) {
         // todo
         // console.log("In player update function!");
     }
     render = function() {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
     }
     handleInput = function(key) {
         console.log(key);
+        if (key === "up") {
+            this.y--;
+        }
+        if (key === "down") {
+            this.y++;
+        }
+        if (key === "left") {
+            this.x--;
+        }
+        if (key === "right") {
+            this.x++;
+        }
+
     }
 };
 
