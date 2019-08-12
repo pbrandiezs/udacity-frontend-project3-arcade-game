@@ -59,16 +59,24 @@ class Player {
     handleInput = function(key) {
         console.log(key);
         if (key === "up") {
-            this.y--;
+            if (this.y > 0) {
+                this.y--;
+            }
         }
         if (key === "down") {
-            this.y++;
+            if (this.y < 5) {
+                this.y++;
+            }
         }
         if (key === "left") {
-            this.x--;
+            if (this.x > 0) {
+                this.x--;
+            }
         }
         if (key === "right") {
-            this.x++;
+            if (this.x < 4) {
+                this.x++;
+            }
         }
 
     }
