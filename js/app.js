@@ -2,13 +2,15 @@
 class Enemy {
     constructor() {
         this.sprite = 'images/enemy-bug.png';
+        this.x = 0;
+        this.y = Math.floor(Math.random() * 6);
     }
     update = function(dt) {
         // todo
         // console.log("In enemy update function!");
     }
     render = function() {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
     }
 }
 
