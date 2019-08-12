@@ -8,6 +8,10 @@ class Enemy {
     update = function(dt) {
         // todo
         // console.log("In enemy update function!");
+        this.x = this.x + dt;
+        if (this.x > 5) {
+            this.x = 0;
+        }
     }
     render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
@@ -97,7 +101,6 @@ Player.prototype.handleInput = function(key) {
 */
 
 // Now instantiate your objects.
-
 let bug = new Enemy();
 
 // Place all enemy objects in an array called allEnemies
