@@ -4,7 +4,6 @@ class Enemy {
         this.sprite = 'images/enemy-bug.png';
         this.x = 0;
         this.y = Math.floor(Math.random() * 3) + 1;
-        console.log(this.y);
         this.speed = Math.floor(Math.random() * 3) + 1;
     }
     update = function(dt) {
