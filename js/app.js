@@ -31,41 +31,12 @@ class Enemy {
 }
 
 
-
-/*
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
-};
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-};
-
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-*/
-
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
 class Player {
     constructor(dt) {
         this.sprite = 'images/char-boy.png';
         this.x = 2;
         this.y = 5;
+        this.level = 0;
     }
     update = function(dt) {
         // todo
@@ -73,6 +44,10 @@ class Player {
     }
     render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+        ctx.font = '30pt impact';
+        ctx.lineWidth = 3;
+        ctx.fillStyle = 'white';
+        ctx.fillText("Level: " + this.level, 350, 100);
     }
     handleInput = function(key) {
         if (key === "up") {
@@ -83,6 +58,8 @@ class Player {
                 alert("Winner!");
                 this.x = 2;
                 this.y = 5;
+                this.level++;
+                console.log(this.level);
             }
         }
         if (key === "down") {
@@ -104,17 +81,6 @@ class Player {
     }
 };
 
-/*
-Player.prototype.update = function(dt) {
-};
-
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-Player.prototype.handleInput = function(key) {
-    console.log(key);
-};
-*/
 
 // Now instantiate your objects.
 var level = Math.floor(Math.random() * 10);
