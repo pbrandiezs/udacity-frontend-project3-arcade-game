@@ -1,3 +1,6 @@
+//Declare variables
+var allEnemies = [];
+
 // Enemies our player must avoid
 class Enemy {
     constructor() {
@@ -90,7 +93,6 @@ function instantiateEnemies() {
 };
 
 // Now instantiate your objects.
-var allEnemies = [];
 instantiateEnemies();
 
 // Place the player object in a variable called player
