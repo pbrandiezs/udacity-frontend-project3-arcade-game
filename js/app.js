@@ -69,8 +69,6 @@ class Player {
                 this.y--;
             } else {
                 //winner - return to start position
-                console.log("Winner!")
-                console.log("Level " + this.level);
                 alert("Winner!");
                 this.x = 2;
                 this.y = 5;
