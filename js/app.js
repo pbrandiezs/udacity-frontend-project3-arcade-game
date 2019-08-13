@@ -4,11 +4,12 @@ class Enemy {
         this.sprite = 'images/enemy-bug.png';
         this.x = 0;
         this.y = Math.floor(Math.random() * 5);
+        this.speed = Math.floor(Math.random() * 3) + 1;
     }
     update = function(dt) {
         // todo
         // console.log("In enemy update function!");
-        this.x = this.x + dt;
+        this.x = this.x + dt * this.speed;
         if (this.x > 5) {
             this.x = 0;
         }
