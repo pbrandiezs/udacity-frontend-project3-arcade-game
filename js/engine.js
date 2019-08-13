@@ -154,6 +154,15 @@ var Engine = (function(global) {
         });
 
         player.render();
+
+        allEnemies.forEach(function(enemy) {
+            if (Math.floor(enemy.x) === player.x && enemy.y === player.y) {
+                alert("Game Over!");
+                window.location.replace("index.html");
+            } else {
+                // console.log("enemy - player x,y is " + Math.floor(enemy.x) + "," + enemy.y + "-" + player.x + "," + player.y);
+            }
+        });
     }
 
     /* This function does nothing but it could have been a good place to
