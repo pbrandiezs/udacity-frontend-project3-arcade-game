@@ -1,20 +1,25 @@
 # Classic Arcade Game Clone Project
 
-## Table of Contents
+Udacity Front End Development Project 3 - Classic Arcade Game
 
-- [Instructions](#instructions)
-- [Contributing](#contributing)
+# Program: index.html, css/style.css, js/app.js, js/engine.js, js/resources.js
+* Author: Perry Brandiezs
+* Date: August 13, 2019
 
-## Instructions
+### Overview
+* This project is a fun clone of a Classic Arcade Game, to demonstrate Object-Oriented JavaScript, use of the HTML5 Canvas, and a game engine.
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+### Summary of third-party resources used:
+* Initial starter code provided by Udacity
+https://github.com/udacity/frontend-nanodegree-arcade-game
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+### Hosting / Deployment
+Copy the entire directory contents to the hosting server, including the css, images, and js folders.
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+### GamePlay
+* To play the game, navigate the browser to the index.html file.
+* While avoiding bugs, navigate the player from the grass, across the busy road, to the water, using the up / down / left / right keys.
+* A collision with a bug ends the game.
+* Reaching the water will begin the next level.
+* To win the game, see how many levels you can complete!
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
