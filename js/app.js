@@ -10,23 +10,27 @@ class Enemy {
         this.speed = Math.floor(Math.random() * 3) + 1;
     }
     update = function(dt) {
+        // Update the position
         this.x = this.x + dt * this.speed;
         if (this.x > 5) {
             this.x = 0;
         }
+        // Check for collision with player
         this.checkCollision();
     }
     render = function() {
+        // display the object
         ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
     }
     checkCollision = function() {
+        // check for collision
         if (Math.floor(this.x) === player.x && this.y === player.y) {
             alert("Game Over!");
             player.x = 2;
             player.y = 5;
             window.location.replace("index.html");
         } else {
-            // console.log("enemy - player x,y is " + Math.floor(this.x) + "," + this.y + "-" + player.x + "," + player.y);
+            // noop - no collision play continues
         }
     }
 }
@@ -43,14 +47,16 @@ class Player {
         // todo - not used
     }
     render = function() {
+        // Display the player object
         ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
-        //Display level text
+        // Display the level text
         ctx.font = '30pt impact';
         ctx.lineWidth = 3;
         ctx.fillStyle = 'white';
         ctx.fillText("Level: " + this.level, 350, 100);
     }
     handleInput = function(key) {
+        // Move the player
         if (key === "up") {
             if (this.y > 0) {
                 this.y--;
@@ -84,6 +90,7 @@ class Player {
 };
 
 function instantiateEnemies() {
+    // Place a random number of enemies
     var enemyCount = Math.floor(Math.random() * 10);
     for(i=0; i <= enemyCount; i++ ) {
         let bug = new Enemy();
@@ -92,7 +99,7 @@ function instantiateEnemies() {
     }
 };
 
-// Now instantiate your objects.
+// Instantiate the enemies
 instantiateEnemies();
 
 // Place the player object in a variable called player
