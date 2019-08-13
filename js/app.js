@@ -13,9 +13,20 @@ class Enemy {
         if (this.x > 5) {
             this.x = 0;
         }
+        this.checkCollision();
     }
     render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+    }
+    checkCollision = function() {
+        if (Math.floor(this.x) === player.x && this.y === player.y) {
+            alert("Game Over!");
+            player.x = 2;
+            player.y = 5;
+            window.location.replace("index.html");
+        } else {
+            // console.log("enemy - player x,y is " + Math.floor(this.x) + "," + this.y + "-" + player.x + "," + player.y);
+        }
     }
 }
 
