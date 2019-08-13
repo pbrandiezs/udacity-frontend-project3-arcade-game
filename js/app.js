@@ -7,8 +7,6 @@ class Enemy {
         this.speed = Math.floor(Math.random() * 3) + 1;
     }
     update = function(dt) {
-        // todo
-        // console.log("In enemy update function!");
         this.x = this.x + dt * this.speed;
         if (this.x > 5) {
             this.x = 0;
@@ -30,7 +28,7 @@ class Enemy {
     }
 }
 
-
+// Player
 class Player {
     constructor(dt) {
         this.sprite = 'images/char-boy.png';
@@ -39,11 +37,11 @@ class Player {
         this.level = 0;
     }
     update = function(dt) {
-        // todo
-        // console.log("In player update function!");
+        // todo - not used
     }
     render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+        //Display level text
         ctx.font = '30pt impact';
         ctx.lineWidth = 3;
         ctx.fillStyle = 'white';
@@ -59,7 +57,9 @@ class Player {
                 this.x = 2;
                 this.y = 5;
                 this.level++;
-                console.log(this.level);
+                //generate new random enemies
+                allEnemies=[];
+                instantiateEnemies();
             }
         }
         if (key === "down") {
@@ -77,25 +77,24 @@ class Player {
                 this.x++;
             }
         }
-
     }
 };
 
+function instantiateEnemies() {
+    var enemyCount = Math.floor(Math.random() * 10);
+    for(i=0; i <= enemyCount; i++ ) {
+        let bug = new Enemy();
+        // Place all enemy objects in an array called allEnemies
+        allEnemies.push(bug);
+    }
+};
 
 // Now instantiate your objects.
-var level = Math.floor(Math.random() * 10);
 var allEnemies = [];
-for(i=0; i <= level; i++ ) {
-    let bug = new Enemy();
-    // Place all enemy objects in an array called allEnemies
-    allEnemies.push(bug);
-}
+instantiateEnemies();
 
 // Place the player object in a variable called player
 let player = new Player();
-
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -106,6 +105,5 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
 });
